@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SISAEP-UPM Sidebar Editável</title>
+  <style>
+    :root{
+      --green:#0f7f42;
+      --green-dark:#0b6334;
+      --gold:#f3cd2f;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f6f7f8;
+      --white:#ffffff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:32px;
+      background:#f3f4f6;
+      color:var(--text);
+    }
+    .sidebar{
+      width:280px;
+      min-height:760px;
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 18px 45px rgba(15,23,42,.08);
+      display:flex;
+      flex-direction:column;
+    }
+    .brand{
+      height:86px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:18px 18px;
+      border-bottom:1px solid var(--line);
+    }
+    .brand-mark{
+      width:48px;height:48px;border-radius:50%;
+      border:2px solid #111;
+      display:grid;place-items:center;
+      position:relative;
+      background:#fff;
+      overflow:hidden;
+      flex:0 0 auto;
+    }
+    .brand-mark:before{
+      content:"";
+      width:34px;height:17px;
+      background:var(--gold);
+      border-radius:34px 34px 0 0;
+      position:absolute;bottom:10px;
+    }
+    .brand-mark:after{
+      content:"";
+      width:42px;height:16px;
+      border-top:4px solid #111;
+      border-bottom:4px solid #111;
+      position:absolute;bottom:5px;
+      background:white;
+    }
+    .brand-title{
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:.02em;
+      color:#111827;
+      white-space:nowrap;
+    }
+    .menu{
+      padding:18px 14px 14px;
+      flex:1;
+    }
+    .active-item{
+      height:50px;
+      border-radius:12px;
+      background:linear-gradient(90deg,var(--green),var(--green-dark));
+      color:white;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:0 16px;
+      font-size:19px;
+      font-weight:700;
+      margin-bottom:18px;
+      box-shadow:0 8px 18px rgba(15,127,66,.18);
+    }
+    .item,.section-head,.subitem{
+      display:flex;
+      align-items:center;
+      color:var(--text);
+    }
+    .section{
+      margin-bottom:12px;
+    }
+    .section-head{
+      height:42px;
+      gap:13px;
+      padding:0 12px;
+      font-size:17px;
+      font-weight:650;
+    }
+    .section-head .chev{
+      margin-left:auto;
+      color:#4b5563;
+    }
+    .subitems{
+      margin-left:24px;
+      padding-left:18px;
+      border-left:1.4px solid var(--line);
+    }
+    .subitem{
+      height:42px;
+      gap:12px;
+      font-size:15px;
+      color:#222;
+      position:relative;
+      padding-left:2px;
+    }
+    .subitem:before{
+      content:"";
+      position:absolute;
+      left:-22px;
+      width:7px;height:7px;
+      border-radius:50%;
+      background:#d6d9de;
+    }
+    .icon{
+      width:21px;
+      height:21px;
+      display:inline-grid;
+      place-items:center;
+      color:#3f454b;
+      flex:0 0 auto;
+    }
+    .icon svg{width:21px;height:21px;stroke:currentColor;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .active-item .icon{color:white}
+    .profile{
+      height:82px;
+      border-top:1px solid var(--line);
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:#fff;
+    }
+    .avatar{
+      width:46px;height:46px;border-radius:50%;
+      background:linear-gradient(135deg,var(--green),var(--green-dark));
+      color:white;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      font-size:18px;
+      flex:0 0 auto;
+    }
+    .profile b{display:block;font-size:15px}
+    .profile span{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+    .profile .chev{margin-left:auto;color:#4b5563}
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-title">SISAEP - UPM</div>
+    </div>
+
+    <nav class="menu">
+      <div class="active-item">
+        <span class="icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+        </span>
+        Painel
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></span>
+          Submissões
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 14.5-4 16 0"/></svg></span>Minhas submissões</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></span>Nova submissão</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="5" r="2"/><circle cx="18" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><path d="M6 7v4l6 6 6-6V7"/></svg></span>
+          Tramitação
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span>Checklist inicial</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 7h7l2 2h9v10H3z"/></svg></span>Triagem documental</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4 21c2-5 14-5 16 0"/><path d="M3 3l18 18"/></svg></span>Anonimização</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 21c1-5 11-5 12 0"/><path d="M14 18c1-3 6-3 7 0"/></svg></span>
+          Avaliação
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 21c1-5 11-5 12 0"/><path d="M17 8v6M14 11h6"/></svg></span>Distribuir avaliadores</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v18H7z"/><path d="M10 8h4M10 12h4M10 16h3"/></svg></span>Pareceres</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>
+          Sessões do CEP
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></span>Agenda</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 21c1-5 11-5 12 0"/></svg></span>Presenças</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg></span>Acta</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M14 4l6 6M10 8l6 6M3 21h8M5 19l8-8"/></svg></span>
+          Deliberações
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>Decisões</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><path d="M7 3h10v18H7z"/><circle cx="16" cy="16" r="3"/></svg></span>Parecer final</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M6 8l-3 6h6zM18 8l-3 6h6z"/></svg></span>
+          Recursos
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 16V8M8 12l4-4 4 4"/></svg></span>Submeter recurso</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14 5M4 12a8 8 0 0 1 14-5"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span>Reapreciação</div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 16v-5M12 16V8M16 16v-3"/></svg></span>
+          Relatórios
+          <span class="chev">⌄</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head">
+          <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3 8-8 9-5-1-8-4-8-9V7z"/><circle cx="12" cy="12" r="2"/></svg></span>
+          Administração
+          <span class="chev">⌃</span>
+        </div>
+        <div class="subitems">
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3 21c1-5 11-5 12 0"/></svg></span>Utilizadores</div>
+          <div class="subitem"><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-7h6v7"/></svg></span>Unidades orgânicas</div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="profile">
+      <div class="avatar">AM</div>
+      <div>
+        <b>Ana Malate</b>
+        <span>Administradora</span>
+      </div>
+      <div class="chev">⌄</div>
+    </div>
+  </aside>
+</body>
+</html>
